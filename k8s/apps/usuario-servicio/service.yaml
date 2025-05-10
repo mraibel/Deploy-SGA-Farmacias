@@ -3,9 +3,10 @@ kind: Service
 metadata:
   name: usuario-servicio
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: usuario-servicio
   ports:
-    - port: 8080
-      targetPort: 8080
+    - port: 8080         # Puerto del servicio dentro del clúster
+      targetPort: 8080   # Puerto del contenedor (tu app Spring Boot)
+      nodePort: 8081     # Puerto del nodo (Minikube) — localhost:8081
