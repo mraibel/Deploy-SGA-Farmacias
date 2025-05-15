@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: mysql
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: mysql
@@ -13,24 +12,19 @@ spec:
         app: mysql
     spec:
       containers:
-        - name: mysql
-          image: mysql:8.0
-          env:
-            - name: MYSQL_ALLOW_EMPTY_PASSWORD
-              value: "yes"
-            - name: MYSQL_DATABASE
-              value: usuarios
-          ports:
-            - containerPort: 3306
-          volumeMounts:
-            - name: mysql-data
-              mountPath: /var/lib/mysql
-            - name: initdb
-              mountPath: /docker-entrypoint-initdb.d
+      - image: mysql:8
+        name: mysql
+        env:
+        - name: MYSQL_ALLOW_EMPTY_PASSWORD
+          value: "yes"
+        - name: MYSQL_DATABASE
+          value: usuarios
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+        - name: mysql-persistent-storage
+          mountPath: /var/lib/mysql
       volumes:
-        - name: mysql-data
-          persistentVolumeClaim:
-            claimName: mysql-pvc
-        - name: initdb
-          configMap:
-            name: mysql-initdb-script
+      - name: mysql-persistent-storage
+        persistentVolumeClaim:
+          claimName: mysql-pvc
