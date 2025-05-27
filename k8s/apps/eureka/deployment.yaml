@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: msvc-eureka
-          image: formidata/msvc-eureka:v1.0.0
+          image: formidata/microservice-eureka:v1.0.1
           ports:
             - containerPort: 8761
