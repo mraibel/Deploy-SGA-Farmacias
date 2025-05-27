@@ -19,3 +19,6 @@ spec:
           image: formidata/microservice-gateway:v1.0.1
           ports:
             - containerPort: 8081
+          env:
+          - name: SPRING_PROFILES_ACTIVE
+            value: "k8s"
