@@ -14,8 +14,8 @@ spec:
         app: mysql
     spec:
       containers:
-      - image: mysql:latest
-        name: mysql
+      - name: mysql
+        image: mysql:8.0
         env:
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
@@ -40,7 +40,9 @@ kind: Service
 metadata:
   name: mysql
 spec:
-  ports:
-  - port: 3306
   selector:
     app: mysql
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
