@@ -9,4 +9,4 @@ spec:
   ports:
     - port: 8081         # Puerto del servicio dentro del clúster
       targetPort: 8081   # Puerto del contenedor (tu app Spring Boot)
-      nodePort: 30081     # Puerto del nodo (Minikube) — localhost:8081
+      nodePort: 30881     # Puerto del nodo (Minikube) — localhost:8081
