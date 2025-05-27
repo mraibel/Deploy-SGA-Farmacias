@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: msvc-eureka
+  labels:
+    app: msvc-eureka
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: msvc-eureka
+  template:
+    metadata:
+      labels:
+        app: msvc-eureka
+    spec:
+      containers:
+        - name: msvc-eureka
+          image: formidata/msvc-eureka:v1.0.0
+          ports:
+            - containerPort: 8761

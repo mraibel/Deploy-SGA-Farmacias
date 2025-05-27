@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: msvc-gateway
+  labels:
+    app: msvc-gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: msvc-gateway
+  template:
+    metadata:
+      labels:
+        app: msvc-gateway
+    spec:
+      containers:
+        - name: msvc-gateway
+          image: formidata/msvc-gateway:v1.0.0
+          ports:
+            - containerPort: 8081
