@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: msvc-gateway-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /api-gateway
+        pathType: Prefix
+        backend:
+          service:
+            name: msvc-gateway
+            port:
+              number: 8081
