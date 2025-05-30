@@ -3,16 +3,16 @@ kind: Ingress
 metadata:
   name: msvc-gateway-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
-  ingressClassName: nginx
   rules:
-  - http:
-      paths:
-      - path: /api-gateway
-        pathType: Prefix
-        backend:
-          service:
-            name: msvc-gateway
-            port:
-              number: 80
+    - host: gateway.local
+      http:
+        paths:
+          - path: /?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: msvc-gateway
+                port:
+                  number: 8081
