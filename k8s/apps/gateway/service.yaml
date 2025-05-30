@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: msvc-gateway
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: msvc-gateway
   ports:
-    - protocol: TCP
-      port: 80           
-      targetPort: 8081
+    - port: 8081         # Puerto del servicio dentro del clúster
+      targetPort: 8081   # Puerto del contenedor (tu app Spring Boot)
+      nodePort: 30881     # Puerto del nodo (Minikube) — localhost:8081
