@@ -3,9 +3,10 @@ kind: Service
 metadata:
   name: msvc-gateway
 spec:
-  type: ClusterIP  # <--- CAMBIA ESTO
+  type: ClusterIP
   selector:
     app: msvc-gateway
   ports:
-    - port: 8081
+    - protocol: TCP
+      port: 80           
       targetPort: 8081
