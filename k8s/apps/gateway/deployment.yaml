@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: msvc-gateway
-          image: formidata/microservice-gateway:v1.0.6
+          image: formidata/microservice-gateway:v1.0.7
           ports:
             - containerPort: 8081
           env:
