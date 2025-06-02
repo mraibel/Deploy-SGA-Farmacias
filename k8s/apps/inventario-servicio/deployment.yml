@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: inventario-servicio-container
-        image: formidata/inventario-servicio:v1.0.0
+        image: formidata/inventario-servicio:v1.0.1
         ports:
         - containerPort: 8083
         env:
