@@ -11,4 +11,4 @@ data:
       - job_name: 'msvc-gateway'
         metrics_path: /actuator/prometheus
         static_configs:
-          - targets: ['msvc-gateway:8081']
+          - targets: ['localhost:8081']
