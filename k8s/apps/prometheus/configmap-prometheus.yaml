@@ -11,4 +11,4 @@ data:
       - job_name: 'msvc-gateway'
         metrics_path: /actuator/prometheus
         static_configs:
-          - targets: ['msvc-gateway.microservices.svc.cluster.local:8081']
+          - targets: ['msvc-gateway.default.svc.cluster.local:8081']
