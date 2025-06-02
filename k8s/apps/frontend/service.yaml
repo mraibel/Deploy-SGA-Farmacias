@@ -7,6 +7,6 @@ spec:
     app: frontend
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 3000
-  type: NodePort
+      port: 3000       # puerto expuesto del Service
+      targetPort: 3000 # puerto en el pod
+  type: ClusterIP

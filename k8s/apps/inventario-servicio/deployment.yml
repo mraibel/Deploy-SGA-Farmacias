@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: usuario-servicio
+  name: inventario-servicio
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: usuario-servicio
+      app: inventario-servicio
   template:
     metadata:
       labels:
-        app: usuario-servicio
+        app: inventario-servicio
     spec:
       containers:
-      - name: usuario-servicio-container
-        image: formidata/usuario-servicio:v1.1.3
+      - name: inventario-servicio-container
+        image: formidata/inventario-servicio:v1.0.0
         ports:
-        - containerPort: 8082
+        - containerPort: 8083
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: "k8s"
